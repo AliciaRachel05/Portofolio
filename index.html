@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alicia Rachel | Product Design Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #FAFAFA;
+            --text-color: #1A1A1A;
+            --secondary-text: #5A5A5A;
+            --accent-color: #D4AF37; 
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--secondary-text);
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background: rgba(250, 250, 250, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Sections General */
+        section {
+            padding: 8rem 5% 4rem;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        /* Hero Section */
+        #hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100vh;
+            gap: 4rem;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--secondary-text);
+            margin-bottom: 2rem;
+            max-width: 80%;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border: 1px solid var(--text-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+        }
+
+        .btn:hover {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            object-fit: cover;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+        
+        .about-content p {
+            font-size: 1.2rem;
+            color: var(--secondary-text);
+            line-height: 1.8;
+        }
+
+        .languages-container {
+            margin-top: 2rem;
+            text-align: left;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        .languages-container h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        .languages-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .languages-list li {
+            font-size: 0.95rem;
+            color: var(--secondary-text);
+        }
+
+        .languages-list strong {
+            color: var(--text-color);
+            display: block;
+        }
+
+        /* Experience Section */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .experience-card {
+            border-bottom: 1px solid #E0E0E0;
+            padding-bottom: 1.5rem;
+        }
+
+        .experience-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .experience-card .company {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .experience-card .date {
+            color: var(--secondary-text);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .project-card {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 4px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            border-radius: 4px;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.02);
+        }
+
+        .project-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-meta {
+            color: var(--secondary-text);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .project-details {
+            font-size: 0.95rem;
+            color: var(--secondary-text);
+            line-height: 1.6;
+        }
+
+        .project-details ul {
+            padding-left: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        .project-details li {
+            margin-bottom: 0.3rem;
+        }
+
+        /* Contact Section / Footer */
+        footer {
+            text-align: center;
+            padding: 6rem 5% 3rem;
+            background-color: var(--text-color);
+            color: var(--bg-color);
+        }
+
+        footer h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        footer a {
+            font-size: 1.2rem;
+            border-bottom: 1px solid var(--bg-color);
+            padding-bottom: 0.2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            #hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 6rem;
+            }
+            .hero-text p {
+                max-width: 100%;
+                margin: 0 auto 2rem;
+            }
+            .hero-image {
+                justify-content: center;
+            }
+            .nav-links {
+                display: none;
+            }
+            .languages-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">AR.</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <div class="hero-text">
+            <h1>Alicia Rachel Saputra</h1>
+            <p>Product Design Engineer passionate about innovation, sustainability, and mobility solutions. Bridging the gap between creative design and engineering precision.</p>
+            <a href="#projects" class="btn">View My Work</a>
+        </div>
+        <div class="hero-image">
+            <img src="image_7089e8.jpg" alt="Alicia Rachel Saputra">
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <p>I am a dedicated Product Design Engineering student currently pursuing my bachelor’s degree. With hands-on experience gained through participation in the Shell Eco-Marathon competition, I have developed a strong foundation in design thinking, product development, and ergonomics. My active involvement in university projects and collaborative design initiatives reflects my creativity, adaptability, and commitment to continuous improvement.</p>
+            
+            <div class="languages-container">
+                <h3>Languages</h3>
+                <ul class="languages-list">
+                    <li><strong>Indonesian</strong> Native or bilingual proficiency</li>
+                    <li><strong>English</strong> Professional working proficiency</li>
+                    <li><strong>Japanese</strong> Limited working proficiency</li>
+                    <li><strong>Korean</strong> Limited working proficiency</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2 class="section-title">Experience</h2>
+        <div class="experience-grid">
+            <div class="experience-card">
+                <h3>Product Design Engineer Intern</h3>
+                <p class="company">ASO College Group · Fukuoka, Japan</p>
+                <p class="date">Feb 2026 - Present</p>
+                <p>Learning CATIA, 3DEXPERIENCE, and product design development. Improving problem-solving skills through real projects and presentations using the Japanese language.</p>
+            </div>
+            <div class="experience-card">
+                <h3>Area Coordinator Volunteer</h3>
+                <p class="company">Brightspot SuperMrkt 2025 · Jakarta, Indonesia</p>
+                <p class="date">Nov 2025 - Dec 2025</p>
+                <p>Responsible for coordinating the local team, organizing shifts, task assignments, and acting as a liaison between the central team and area team to ensure clear communication.</p>
+            </div>
+            <div class="experience-card">
+                <h3>Technical Team Member</h3>
+                <p class="company">D'BASE TEAM · Banten, Indonesia</p>
+                <p class="date">Sep 2024 - Dec 2025</p>
+                <p>Part of the D'Base 2024/2025 Chassis Technical Team, focusing on mobility solutions and engineering execution.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Selected Projects</h2>
+        <div class="projects-grid">
+            
+            <div class="project-card">
+                <img src="project-karahako.jpg" alt="Karahako Light">
+                <h3>Karahako Light</h3>
+                <p class="project-meta">May 2024 - Jul 2024</p>
+                <div class="project-details">
+                    <p>A colorful light design concept inspired by Tetris, Minecraft, and Lego.</p>
+                    <ul>
+                        <li><strong>Concept:</strong> "Kara" (から) meaning From, and "Hako" (箱) meaning Box.</li>
+                        <li><strong>Target Audience:</strong> Designed for Middle childhood (6 – 9 years) and Late childhood (10 – 12 years).</li>
+                        <li><strong>Aesthetics:</strong> Features a "Tropical Pastel" color palette.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="image_7089c7.jpg" alt="Camnata Design Poster">
+                <h3>Camnata</h3>
+                <p class="project-meta">Dec 2023 - Jan 2024</p>
+                <div class="project-details">
+                    <p>CAMera statioNAry sTAnd. "NATA" means organize. Designed to easily store writing stationery in one place with an attractive camera shape.</p>
+                    <ul>
+                        <li><strong>Functions:</strong> Stationary Stand, Tape Dispenser, Electric Sharpener, and Eraser Storage.</li>
+                        <li><strong>Audience:</strong> Photographers, Students, and Office Workers.</li>
+                        <li><strong>Dimensions:</strong> 17cm x 17cm x 10cm.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="contact">
+        <h2>Let's Collaborate</h2>
+        <p style="margin-bottom: 2rem; color: #CCC;">For any professional inquiries or collaboration opportunities.</p>
+        <a href="mailto:alicia.rachel.s@gmail.com">alicia.rachel.s@gmail.com</a>
+    </footer>
+
+</body>
+</html>
